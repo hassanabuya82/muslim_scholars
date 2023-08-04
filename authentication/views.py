@@ -150,6 +150,3 @@ def password(request):
     print("password after", user.password)
 
     return Response(status=status.HTTP_201_CREATED)
-
-
-
