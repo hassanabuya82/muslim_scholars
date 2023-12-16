@@ -101,18 +101,16 @@ WSGI_APPLICATION = 'aitt_sms.wsgi.application'
 #     }
 # }
 
-from os import environ
-
-env = environ.Env()
+import os
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': env('MYSQLDATABASE'),
-        'USER': env('MYSQLUSER'),
-        'PASSWORD': env('MYSQLPASSWORD'),
-        'HOST': env('MYSQLHOST'),
-        'PORT': env('MYSQLPORT'),
+        'NAME': os.environ.get('MYSQLDATABASE'),
+        'USER': os.environ.get('MYSQLUSER'),
+        'PASSWORD': os.environ.get('MYSQLPASSWORD'),
+        'HOST': os.environ.get('MYSQLHOST'),
+        'PORT': os.environ.get('MYSQLPORT'),
     }
 }
 
