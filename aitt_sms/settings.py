@@ -83,12 +83,24 @@ WSGI_APPLICATION = 'aitt_sms.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'abaad',
+        'USER': 'root',
+        'PASSWORD': 'Bismillah@2022',
+        'HOST': 'localhost',  
+        'PORT': '3306',       
     }
 }
+
 
 
 # Password validation
@@ -140,6 +152,16 @@ AUTH_USER_MODEL = 'myauth.CustomUser'
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/4.1/howto/static-files/
+
+import os
+
+# The directory where collectstatic will copy static files during deployment.
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

@@ -1,8 +1,26 @@
 from rest_framework import serializers
 from .models import *
 
+class CommentSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Comment
+        fields = '__all__'
+
+
+class BlogSerializer(serializers.ModelSerializer):
+    
+    created_by = serializers.StringRelatedField(read_only=True)
+    category_name = serializers.ReadOnlyField(source="category.name")
+    class Meta:
+        model = Post
+        fields = ['id','created_by', 'created_on','title', 'content', 'category','category_name', 'reading_time', 'image']
+  
+
 class PostSerializer(serializers.ModelSerializer):
     created_by = serializers.StringRelatedField(read_only=True)
+    category_name = serializers.ReadOnlyField(source="category.name")
+    comments = CommentSerializer(many=True, read_only=True)
 
     class Meta:
         model = Post
@@ -16,9 +34,10 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class CommentSerializer(serializers.ModelSerializer):
-    author = serializers.StringRelatedField(read_only=True)
+
+class ContactUsSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Comment
+        model = ContactUs
         fields = '__all__'
+
