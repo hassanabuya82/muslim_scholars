@@ -90,14 +90,25 @@ WSGI_APPLICATION = 'aitt_sms.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'abaad',
+#         'USER': 'root',
+#         'PASSWORD': 'Bismillah@2022',
+#         'HOST': 'localhost',  
+#         'PORT': '3306',       
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'abaad',
-        'USER': 'root',
-        'PASSWORD': 'Bismillah@2022',
-        'HOST': 'localhost',  
-        'PORT': '3306',       
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),
+        'PORT': env('DB_PORT'),
     }
 }
 
