@@ -101,6 +101,10 @@ WSGI_APPLICATION = 'aitt_sms.wsgi.application'
 #     }
 # }
 
+from os import environ
+
+env = environ.Env()
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
