@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-m2pd^s5#5jl#0irx0yd)nl&%v2ahy+xmzvr(csx%+7@hygy32&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://muslimscholars-production.up.railway.app/']
+ALLOWED_HOSTS = ['https://muslimscholars-production.up.railway.app/','muslimscholars-production.up.railway.app']
 
 CORS_ALLOW_ALL_ORIGINS = True
 
