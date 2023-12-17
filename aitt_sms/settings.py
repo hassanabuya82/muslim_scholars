@@ -27,13 +27,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-# CORS_ALLOWED_ORIGINS = [
-#     'https://muslim-psi.vercel.app',  # Add your frontend URL here
-#     'muslim-psi.vercel.app',  # Add your frontend URL here
-#     # Other allowed origins if needed
-# ]
+CORS_ALLOWED_ORIGINS = [
+    'http://muslim-psi.vercel.app',  # Add your frontend URL here
+    'https://muslim-psi.vercel.app',  # Add your frontend URL here
+    'http://localhost:5174',  # Add your frontend URL here
+    # 'muslim-psi.vercel.app',  # Add your frontend URL here
+    # Other allowed origins if needed
+]
 
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
 
@@ -121,7 +123,16 @@ DATABASES = {
     }
 }
 
-
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'railway',
+#         'USER': 'root',
+#         'PASSWORD': 'FAfF--43a512FBh4A4EG6411a62f5dF5',
+#         'HOST': 'monorail.proxy.rlwy.net',
+#         'PORT': '25268',
+#     }
+# }
 
 # Password validation
 REST_FRAMEWORK = {
