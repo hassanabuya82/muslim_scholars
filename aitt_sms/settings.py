@@ -114,27 +114,27 @@ WSGI_APPLICATION = 'aitt_sms.wsgi.application'
 import os
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('MYSQLDATABASE'),
-        'USER': os.environ.get('MYSQLUSER'),
-        'PASSWORD': os.environ.get('MYSQLPASSWORD'),
-        'HOST': os.environ.get('MYSQLHOST'),
-        'PORT': os.environ.get('MYSQLPORT'),
-    }
-}
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'railway',
-#         'USER': 'root',
-#         'PASSWORD': 'FAfF--43a512FBh4A4EG6411a62f5dF5',
-#         'HOST': 'monorail.proxy.rlwy.net',
-#         'PORT': '25268',
+#         'NAME': os.environ.get('MYSQLDATABASE'),
+#         'USER': os.environ.get('MYSQLUSER'),
+#         'PASSWORD': os.environ.get('MYSQLPASSWORD'),
+#         'HOST': os.environ.get('MYSQLHOST'),
+#         'PORT': os.environ.get('MYSQLPORT'),
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'railway',
+        'USER': 'root',
+        'PASSWORD': 'FAfF--43a512FBh4A4EG6411a62f5dF5',
+        'HOST': 'monorail.proxy.rlwy.net',
+        'PORT': '25268',
+    }
+}
 
 # Password validation
 REST_FRAMEWORK = {
