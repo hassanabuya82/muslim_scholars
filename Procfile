@@ -1,1 +1,1 @@
-web: gunicorn SMS.wsgi --log-file -
+web: gunicorn aitt_sms.wsgi --log-file -
