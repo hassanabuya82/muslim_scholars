@@ -27,13 +27,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CORS_ALLOWED_ORIGINS = [
-    'https://muslim-psi.vercel.app',  # Add your frontend URL here
-    'muslim-psi.vercel.app',  # Add your frontend URL here
-    # Other allowed origins if needed
-]
+# CORS_ALLOWED_ORIGINS = [
+#     'https://muslim-psi.vercel.app',  # Add your frontend URL here
+#     'muslim-psi.vercel.app',  # Add your frontend URL here
+#     # Other allowed origins if needed
+# ]
 
-# CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
 
