@@ -103,6 +103,7 @@ WSGI_APPLICATION = 'aitt_sms.wsgi.application'
 
 import os
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
