@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['http://muslim-psi.vercel.app']
+CSRF_TRUSTED_ORIGINS = ['https://muslim-psi.vercel.app',]
 
 # CORS_ALLOWED_ORIGINS = [
 #     'http://muslim-psi.vercel.app',  # Add your frontend URL here
