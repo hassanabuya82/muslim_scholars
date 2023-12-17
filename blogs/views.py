@@ -23,28 +23,6 @@ class PostDetailsViewSet(RetrieveUpdateDestroyAPIView, GenericViewSet):
     serializer_class = PostSerializer
 
 
-class BlogViewSet(viewsets.ModelViewSet):
-    queryset = Post.objects.all()
-    serializer_class = BlogSerializer
-
-    def list(self, request, *args, **kwargs):
-        page = int(request.GET.get('page', 1))
-        limit = int(request.GET.get('limit', 1000))
-        category_id = request.GET.get('category')
-
-        start_index = (page - 1) * limit
-        end_index = start_index + limit
-
-        if category_id:
-            blogs = self.queryset.filter(category=category_id)[start_index:end_index]
-        else:
-            blogs = self.queryset[start_index:end_index]  # Get paginated blogs
-    
-        serializer = self.get_serializer(blogs, many=True)
-        data = serializer.data
-
-        return Response({ 'blogs': data})
-    
 class CustomPagination(pagination.PageNumberPagination):
     page_size = 10  # Default page size
     page_size_query_param = 'limit'  # Change the page size using 'limit' query parameter
@@ -55,7 +33,7 @@ class PostListView(viewsets.ModelViewSet):
     pagination_class = CustomPagination
 
     def get_queryset(self):
-        queryset = Post.objects.all()
+        queryset = Post.objects.all().order_by('-pk')
         category = self.request.query_params.get('category')
         if category:
             queryset = queryset.filter(category=category)
@@ -101,5 +79,16 @@ class ContactUsViewSet(ListCreateAPIView, GenericViewSet):
 class ContactUsDetailsViewSet(RetrieveUpdateDestroyAPIView, GenericViewSet):
     queryset = ContactUs.objects.all()
     serializer_class = ContactUsSerializer
+
+
+class ContactEmailViewSet(ListCreateAPIView, GenericViewSet):
+    queryset = ContactEmail.objects.all()
+    serializer_class = ContactEmailSerializer
+
+
+
+class ContactEmailDetailsViewSet(RetrieveUpdateDestroyAPIView, GenericViewSet):
+    queryset = ContactEmail.objects.all()
+    serializer_class = ContactEmailSerializer
 
 

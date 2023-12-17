@@ -13,7 +13,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    reading_time = models.TimeField(null=True)
+    reading_time = models.CharField(max_length=255,null=True)
     created_by = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     category = models.ForeignKey('Category', on_delete=models.CASCADE, related_name='posts', null=True)
 
@@ -26,6 +26,14 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+    
+class ContactEmail(models.Model):
+    email = models.CharField(max_length=100)
+    created_on = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.email
     
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')

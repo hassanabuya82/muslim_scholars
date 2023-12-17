@@ -12,6 +12,9 @@ router.register('comments', CommentDetailsViewSet)
 router.register('contact_us', ContactUsViewSet)
 router.register('contact_us', ContactUsDetailsViewSet)
 
+router.register('contact_email', ContactEmailViewSet)
+router.register('contact_email', ContactEmailDetailsViewSet)
+
 router.register('categories', CategoryViewSet)
 router.register('categories', CategoryDetailsViewSet)
 

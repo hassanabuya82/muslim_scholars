@@ -41,3 +41,10 @@ class ContactUsSerializer(serializers.ModelSerializer):
         model = ContactUs
         fields = '__all__'
 
+
+class ContactEmailSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = ContactEmail
+        fields = '__all__'
+
