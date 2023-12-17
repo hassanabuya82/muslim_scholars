@@ -27,6 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['https://muslimscholars-production.up.railway.app/','muslimscholars-production.up.railway.app']
 
+CORS_ALLOWED_ORIGINS = [
+    'https://muslim-psi.vercel.app',  # Add your frontend URL here
+    # Other allowed origins if needed
+]
+
 CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
