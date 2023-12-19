@@ -20,6 +20,7 @@ router.register('categories', CategoryDetailsViewSet)
 
 router.register('blogs', PostListView, basename="blogs")
 router.register('latest', LatestPostsView, basename="latest-posts")
+router.register('most_liked', MostLikedPostsView, basename="most-liked-posts")
 
 # Define custom URLs
 urlpatterns = [

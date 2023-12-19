@@ -8,6 +8,10 @@ from django.views import View
 from rest_framework import viewsets, pagination
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
+from django.db.models import Count
+
+
+
 # Create your views here.
 
 class PostViewSet(ListCreateAPIView, GenericViewSet):
@@ -49,7 +53,15 @@ class LatestPostsView(viewsets.ModelViewSet):
         latest_posts = Post.objects.all().order_by('-created_on')[:15]
         serializer = BlogSerializer(latest_posts, many=True)
         return Response(serializer.data)
-    
+
+class MostLikedPostsView(viewsets.ViewSet):
+    def list(self, request):
+        most_liked_posts = (
+            Post.objects.annotate(like_count=Count('likes'))
+            .order_by('-like_count')[:10]  # Fetch the top 10 most liked posts
+        )
+        serializer = BlogSerializer(most_liked_posts, many=True)
+        return Response(serializer.data)
 
 class CommentViewSet(ListCreateAPIView, GenericViewSet):
     queryset = Comment.objects.all()
